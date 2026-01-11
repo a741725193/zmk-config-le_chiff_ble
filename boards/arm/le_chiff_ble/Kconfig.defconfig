@@ -9,6 +9,9 @@ config BOARD
 config ZMK_KEYBOARD_NAME
 	default "Le Chiffre"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
 if USB
 
 config USB_NRFX
