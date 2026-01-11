@@ -400,12 +400,12 @@ rect.held, rect.combo.held {
 <g transform="translate(287, 196)" class="key keypos-34">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-27" y="-24" width="54" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">LGUI</text>
+<text x="0" y="-4" class="key tap">R</text>
 </g>
 <g transform="translate(595, 196)" class="key keypos-35">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-27" y="-24" width="54" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">RGUI</text>
+<text x="0" y="-4" class="key tap">T</text>
 </g>
 <g transform="translate(665, 196)" class="key keypos-36">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key side"/>

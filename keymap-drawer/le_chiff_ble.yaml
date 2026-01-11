@@ -35,8 +35,8 @@ layers:
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
-  - LGUI
-  - RGUI
+  - R
+  - T
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-control$$
   - MUTE
