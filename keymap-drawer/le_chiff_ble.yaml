@@ -39,7 +39,7 @@ layers:
   - T
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-control$$
-  - MUTE
+  - A
 combos:
 - p: [0, 1]
   k: $$mdi:keyboard-esc$$
