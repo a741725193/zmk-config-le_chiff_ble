@@ -1,0 +1,63 @@
+{
+  "id": "le_chiff_ble",
+  "name": "le_chiff_ble",
+  "layouts": {
+    "default_layout": {
+      "name": "default_layout",
+      "layout": [
+        { "row": 0, "col": 0, "x":     0, "y":   0, "legend":     "Q" },
+        { "row": 0, "col": 1, "x":     1, "y":   0, "legend":     "W" },
+        { "row": 0, "col": 2, "x":     2, "y":   0, "legend":     "E" },
+        { "row": 0, "col": 3, "x":     3, "y":   0, "legend":     "R" },
+        { "row": 0, "col": 4, "x":     4, "y":   0, "legend":     "T" },
+        { "row": 0, "col": 5, "x": 10.75, "y":   0, "legend":     "Y" },
+        { "row": 0, "col": 6, "x": 11.75, "y":   0, "legend":     "U" },
+        { "row": 0, "col": 7, "x": 12.75, "y":   0, "legend":     "I" },
+        { "row": 0, "col": 8, "x": 13.75, "y":   0, "legend":     "O" },
+        { "row": 0, "col": 9, "x": 14.75, "y":   0, "legend":     "P" },
+      
+        { "row": 1, "col": 0, "x":     0, "y":   1, "legend":     "A" },
+        { "row": 1, "col": 1, "x":     1, "y":   1, "legend":     "S" },
+        { "row": 1, "col": 2, "x":     2, "y":   1, "legend":     "D" },
+        { "row": 1, "col": 3, "x":     3, "y":   1, "legend":     "F" },
+        { "row": 1, "col": 4, "x":     4, "y":   1, "legend":     "G" },
+        { "row": 1, "col": 5, "x": 10.75, "y":   1, "legend":     "H" },
+        { "row": 1, "col": 6, "x": 11.75, "y":   1, "legend":     "J" },
+        { "row": 1, "col": 7, "x": 12.75, "y":   1, "legend":     "K" },
+        { "row": 1, "col": 8, "x": 13.75, "y":   1, "legend":     "L" },
+        { "row": 1, "col": 9, "x": 14.75, "y":   1, "legend":   "|\\" },
+      
+        { "row": 2, "col": 0, "x":     0, "y":   2, "legend":     "Z" },
+        { "row": 2, "col": 1, "x":     1, "y":   2, "legend":     "X" },
+        { "row": 2, "col": 2, "x":     2, "y":   2, "legend":     "C" },
+        { "row": 2, "col": 3, "x":     3, "y":   2, "legend":     "V" },
+        { "row": 2, "col": 4, "x":     4, "y":   2, "legend":     "B" },
+        { "row": 2, "col": 5, "x": 10.75, "y":   2, "legend":     "N" },
+        { "row": 2, "col": 6, "x": 11.75, "y":   2, "legend":     "M" },
+        { "row": 2, "col": 7, "x": 12.75, "y":   2, "legend":     "," },
+        { "row": 2, "col": 8, "x": 13.75, "y":   2, "legend":     "." },
+        { "row": 2, "col": 9, "x": 14.75, "y":   2, "legend":     "/" },
+      
+        { "row": 3, "col": 0, "x":   6.5, "y":   3, "legend":  "left" },
+        { "row": 3, "col": 1, "x":   8.5, "y":   3, "legend": "right" },
+        { "row": 3, "col": 2, "x":     2, "y":   3, "legend":   "Alt", "w": 1.25 },
+        { "row": 3, "col": 3, "x":  3.25, "y":   3, "legend": "Super", "w": 1.25 },
+        { "row": 3, "col": 4, "x":   4.5, "y":   3, "legend":     "↓", "w": 1.25 },
+        { "row": 3, "col": 5, "x":    10, "y":   3, "legend":     "↑", "w": 1.25 },
+        { "row": 3, "col": 6, "x": 11.25, "y":   3, "legend":     "←", "w": 1.25 },
+        { "row": 3, "col": 7, "x":  12.5, "y":   3, "legend":     "↓", "w": 1.25 },
+        { "row": 3, "col": 8, "x":   7.5, "y": 1.5, "legend":    "静音", "w": 1.25 }
+      ]
+    }
+  },
+  "sensors": [
+    {
+      "ref": "center_encoder",
+      "name": "encoder_center",
+      "identifier": "encoder_center",
+      "compatible": "alps,ec11",
+      "label": "CENTER_ENCODER",
+      "enabled": true
+    }
+  ]
+}
