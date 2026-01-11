@@ -19,7 +19,7 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
-		zmk,physical-layout = &le_chiff_ble_layout
+		zmk,physical-layout = &le_chiff_ble_layout;
 		zmk,battery = &vbatt;
 	};
 	default_transform:keymap_transform_0 {
