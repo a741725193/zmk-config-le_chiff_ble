@@ -87,11 +87,9 @@
         control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         init-delay-ms = <50>;
     };
-	vbatt: vbatt {
-        compatible = "zmk,battery-voltage-divider";
-        io-channels = <&adc 2>;
-        output-ohms = <2000000>;
-        full-ohms = <(2000000 + 806000)>;
+
+ vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
     };
 	leds {
         compatible = "gpio-leds";
