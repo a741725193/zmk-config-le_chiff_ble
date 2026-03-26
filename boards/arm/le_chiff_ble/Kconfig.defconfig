@@ -60,7 +60,7 @@ config ZMK_USB
 	default y
 
 config ZMK_BATTERY_VOLTAGE_DIVIDER
-	default y
+	default n
 
 endif # BOARD_LE_CHIFF_BLE
 
