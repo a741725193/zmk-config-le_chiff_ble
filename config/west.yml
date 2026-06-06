@@ -32,7 +32,7 @@ manifest:
       revision: zmk-v0.3.0.0
     - name: zmk-feature-module-physical-layout
       remote: cormoran
-      revision: main
+      revision: 244a903
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
