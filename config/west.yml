@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    - name: nxtkb
+      url-base: https://github.com/nxtkb
   projects:
     - name: zmk
       remote: cormoran
@@ -29,5 +31,8 @@ manifest:
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
+    - name: cirque-input-module
+      remote: nxtkb
+      revision: 8af03a4c061580c14ec8745caf0fa2dd3fc7f042
   self:
     path: config

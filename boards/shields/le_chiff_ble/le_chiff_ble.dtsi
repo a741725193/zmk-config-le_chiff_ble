@@ -57,6 +57,15 @@
         sensors = <&center_encoder>;
     };
 
+    // === Cirque Pinnacle2 40mm Trackpad ===
+    // Input listener for unibody (no split transport needed -
+    // points directly to the I2C device, unlike Sweep-Pro's split architecture)
+    glidepoint_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint>;
+        status = "disabled";
+    };
+
     EXT_POWER {
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;

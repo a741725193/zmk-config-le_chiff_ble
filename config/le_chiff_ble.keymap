@@ -5,6 +5,19 @@
  */
 
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 35 // 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2500  // 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // 10
+
+#define SPEED_POINTER 0
+#define SPEED_SCROLL 1
+#define SPEED_PREV 0
+#define SPEED_NEXT 1
+#define SPEED_RESET 2
+#define SPEED_FINE_PREV 3
+#define SPEED_FINE_NEXT 4
+#define CIRQUE_MODE_RELATIVE 0
+#define CIRQUE_MODE_ABSOLUTE 1
+#define CIRQUE_MODE_TOGGLE 2
 
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/runtime-sensor-rotate.dtsi>
@@ -26,7 +39,41 @@
     acceleration-exponent = <1>;
 };
 
+&glidepoint_listener {
+    input-processors = <&pointer_processor 0 0 &drag_scroll_processor 1 8>;
+};
+
 / {
+    // === Cirque Pinnacle2 Trackpad Input Processors ===
+    pointer_processor: pointer_processor {
+        compatible = "zmk,input-processor-pointer-speed";
+        #input-processor-cells = <2>;
+        track-remainders;
+        pointer-curve = "adaptive";
+        pointer-curve-deadzone = <2>;
+        pointer-curve-accel-multiplier = <1>;
+        pointer-curve-accel-divisor = <12>;
+        pointer-curve-max-delta = <120>;
+        one-x-multiplier = <1>;
+        one-x-divisor = <1>;
+        min-percent = <10>;
+        max-percent = <400>;
+        initial-speed-position = <50>;
+    };
+
+    drag_scroll_processor: drag_scroll_processor {
+        compatible = "zmk,input-processor-drag-scroll";
+        #input-processor-cells = <2>;
+        track-remainders;
+        native-wheel-axis = "horizontal-when-enabled";
+        scroll-min-step = <1>;
+        one-x-multiplier = <1>;
+        one-x-divisor = <1>;
+        min-percent = <10>;
+        max-percent = <1000>;
+        initial-speed-position = <50>;
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -149,6 +196,42 @@
             #sensor-binding-cells = <0>;
             tap-ms = <0>;
         };
+
+        // === Cirque Pinnacle2 Trackpad Behaviors ===
+        drgscrl: drag_scroll {
+            compatible = "zmk,behavior-drag-scroll";
+            #binding-cells = <0>;
+        };
+
+        ptr_spd: pointing_speed {
+            compatible = "zmk,behavior-pointing-speed";
+            #binding-cells = <2>;
+        };
+
+        crq_mode: crqm {
+            compatible = "zmk,behavior-cirque-mode";
+            #binding-cells = <1>;
+        };
+
+        sel_x: select_x {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <125>;
+            bindings = <&mkp>, <&kp>;
+        };
+
+        ds_z: drag_scroll_z {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <125>;
+            bindings = <&drgscrl>, <&kp>;
+        };
     };
 
     keymap {
@@ -236,13 +319,14 @@
             >;
         };
 
-        layer_8 {
+        MOUSE {
+            display-name = "MOUSE";
             sensor-bindings = <&rsr_vol &rsr_trans>;
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&tog MOUSE  &mkp MB4  &mkp MCLK  &mkp MB5   &trans      &msc SCRL_LEFT     &msc SCRL_DOWN    &msc SCRL_UP     &msc SCRL_RIGHT    &tog MOUSE
+&trans      &trans    &trans     &trans     &trans      &mmv MOVE_LEFT     &mmv MOVE_DOWN    &mmv MOVE_UP     &mmv MOVE_RIGHT    &trans
+&ptr_spd SPEED_POINTER SPEED_FINE_PREV  &ptr_spd SPEED_POINTER SPEED_FINE_NEXT  &ptr_spd SPEED_SCROLL SPEED_FINE_PREV  &ptr_spd SPEED_SCROLL SPEED_FINE_NEXT  &crq_mode CIRQUE_MODE_TOGGLE  &trans  &mkp MB4  &mkp MCLK  &mkp MB5  &trans
+&ptr_spd SPEED_POINTER SPEED_RESET  &kp SPACE  &kp LSHIFT  &mkp LCLK  &mkp RCLK  &ptr_spd SPEED_SCROLL SPEED_RESET  &trans  &trans  &trans
             >;
         };
     };
